@@ -34,3 +34,4 @@ echo "* Join nodes with:"
 grep -o "kubeadm.*join.*" ~/kubeadm-init.log
 # (master shouldn't join
 # kubeadm join --token $(kubeadm token list |sed -n 2p|egrep -o '^\S+') $(sed -rn s,.*server:.*//,,p /etc/kubernetes/admin.conf)
+# Refer : https://gist.github.com/figaw/4b6b04ecf4c73bc4b88a09f2e6be9111
