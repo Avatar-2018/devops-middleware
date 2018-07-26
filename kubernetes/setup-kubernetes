@@ -1,0 +1,16 @@
+sudo swapoff -a
+
+vim /etc/fstab #(Comment swap)
+
+systemctl status kubelet
+
+kubeadm version
+
+kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address={$hostname -i}
+
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/v0.10.0/Documentation/kube-flannel.yml
+
+#After master up
+kubectl taint nodes --all node-role.kubernetes.io/master-
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/website/master/content/cn/docs/user-guide/nginx-app.yaml
